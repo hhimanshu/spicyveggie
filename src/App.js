@@ -1,16 +1,32 @@
-import React, {Component} from "react";
+import React from "react";
 import "./App.css";
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import AppBar from 'material-ui/AppBar';
+import MenuItem from 'material-ui/MenuItem';
+import IconMenu from 'material-ui/IconMenu/IconMenu';
+import IconButton from 'material-ui/IconButton/IconButton';
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
-class App extends Component {
-  render() {
+const AppMenu = () => {
     return (
-      <div>
-        <div className="App-header">
-          <h2>Welcome to Spicy Veggie</h2>
-        </div>
-      </div>
+        <IconMenu
+            iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
+            anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+            targetOrigin={{horizontal: 'right', vertical: 'top'}}>
+            <MenuItem primaryText="Menus"/>
+            <MenuItem primaryText="Summary"/>
+        </IconMenu>
     );
-  }
-}
+};
+
+const App = () => (
+    <MuiThemeProvider>
+        <AppBar
+            title="SpicyVeggie"
+            showMenuIconButton={false}
+            iconElementRight={<AppMenu />}
+        />
+    </MuiThemeProvider>
+);
 
 export default App;
