@@ -1,15 +1,15 @@
 import React from "react";
 import "./App.css";
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
-import MenuItem from 'material-ui/MenuItem';
-import IconMenu from 'material-ui/IconMenu/IconMenu';
-import IconButton from 'material-ui/IconButton/IconButton';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import SpicyMenu from './menus/SpicyMenu';
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import AppBar from "material-ui/AppBar";
+import MenuItem from "material-ui/MenuItem";
+import IconMenu from "material-ui/IconMenu/IconMenu";
+import IconButton from "material-ui/IconButton/IconButton";
+import MoreVertIcon from "material-ui/svg-icons/navigation/more-vert";
+import SpicyMenu from "./menus/SpicyMenu";
 import breadSandwich from "./images/bread-food-salad-sandwich.jpg";
 import spaghettiPasta from "./images/food-dinner-pasta-spaghetti.jpg";
-
+import {Row} from "react-flexbox-grid";
 
 const foodItems = [
     {
@@ -38,14 +38,23 @@ const AppMenu = () => {
     );
 };
 
+
+const HeaderStyle = {
+    'marginBottom': '3%'
+};
+
 const App = () => (
     <MuiThemeProvider>
         <div>
-            <AppBar
-                title="SpicyVeggie"
-                showMenuIconButton={false}
-                iconElementRight={<AppMenu />}
-            />
+            <div style={HeaderStyle}>
+                <Row around="lg">
+                    <AppBar
+                        title="SpicyVeggie"
+                        showMenuIconButton={false}
+                        iconElementRight={<AppMenu />}
+                    />
+                </Row>
+            </div>
             <SpicyMenu foodItems={foodItems}/>
         </div>
     </MuiThemeProvider>
