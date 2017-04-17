@@ -1,27 +1,24 @@
-import React from 'react';
-import {Table, TableBody, TableRow, TableRowColumn} from 'material-ui/Table';
+import React from "react";
+import Avatar from "material-ui/Avatar";
+import {List, ListItem} from "material-ui/List";
 
-const SpicyMenu = (props)  => (
-    <Table>
-        <TableBody displayRowCheckbox={false}>
-            <TableRow>
-                <TableRowColumn>John Smith</TableRowColumn>
-                <TableRowColumn>Employed</TableRowColumn>
-            </TableRow>
-            <TableRow>
-                <TableRowColumn>Randal White</TableRowColumn>
-                <TableRowColumn>Unemployed</TableRowColumn>
-            </TableRow>
-            <TableRow>
-                <TableRowColumn>Stephanie Sanders</TableRowColumn>
-                <TableRowColumn>Employed</TableRowColumn>
-            </TableRow>
-            <TableRow>
-                <TableRowColumn>Steve Brown</TableRowColumn>
-                <TableRowColumn>Employed</TableRowColumn>
-            </TableRow>
-        </TableBody>
-    </Table>
+
+// https://www.pexels.com/photo-license/
+// All photos on Pexels are free for any personal and commercial purpose.
+
+const SpicyMenu = (props) => (
+    <List>
+        {props.foodItems.map(foodItem => <SpicyMenuItem key={foodItem.name} {...foodItem}/>)}
+    </List>
+);
+
+const SpicyMenuItem = (props) => (
+    // add price on right side
+    <ListItem
+        primaryText={props.price}
+        secondaryText={props.name}
+        leftAvatar={<Avatar src={props.image}/>}
+    />
 );
 
 export default SpicyMenu;

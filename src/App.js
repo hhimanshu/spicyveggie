@@ -7,6 +7,24 @@ import IconMenu from 'material-ui/IconMenu/IconMenu';
 import IconButton from 'material-ui/IconButton/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import SpicyMenu from './menus/SpicyMenu';
+import breadSandwich from "./images/bread-food-salad-sandwich.jpg";
+import spaghettiPasta from "./images/food-dinner-pasta-spaghetti.jpg";
+
+
+const foodItems = [
+    {
+        "name": "Bread Sandwich",
+        "image": breadSandwich,
+        "price": "$9.89"
+
+    },
+    {
+        "name": "Spaghetti Pasta",
+        "image": spaghettiPasta,
+        "price": "$11.23"
+    }
+];
+
 
 const AppMenu = () => {
     return (
@@ -28,9 +46,10 @@ const App = () => (
                 showMenuIconButton={false}
                 iconElementRight={<AppMenu />}
             />
-            <SpicyMenu />
+            <SpicyMenu foodItems={foodItems}/>
         </div>
     </MuiThemeProvider>
 );
+
 
 export default App;
