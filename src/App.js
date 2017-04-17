@@ -6,6 +6,7 @@ import MenuItem from 'material-ui/MenuItem';
 import IconMenu from 'material-ui/IconMenu/IconMenu';
 import IconButton from 'material-ui/IconButton/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import SpicyMenu from './menus/SpicyMenu';
 
 const AppMenu = () => {
     return (
@@ -21,11 +22,14 @@ const AppMenu = () => {
 
 const App = () => (
     <MuiThemeProvider>
-        <AppBar
-            title="SpicyVeggie"
-            showMenuIconButton={false}
-            iconElementRight={<AppMenu />}
-        />
+        <div>
+            <AppBar
+                title="SpicyVeggie"
+                showMenuIconButton={false}
+                iconElementRight={<AppMenu />}
+            />
+            <SpicyMenu />
+        </div>
     </MuiThemeProvider>
 );
 
