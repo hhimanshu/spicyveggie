@@ -3,7 +3,6 @@ import "./App.css";
 import {Row} from "react-flexbox-grid";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import {indigoA700} from 'material-ui/styles/colors';
 import {AppBar, MenuItem, IconMenu, IconButton} from "material-ui";
 import MoreVertIcon from "material-ui/svg-icons/navigation/more-vert";
 import SpicyMenu from "./menus/SpicyMenu";
