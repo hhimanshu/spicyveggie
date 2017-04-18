@@ -13,19 +13,16 @@ const SpicyMenu = (props) => (
     </List>
 );
 
+const style = {
+    alignItems: "center"
+};
+
 const SpicyMenuItem = (props) => (
     <Grid fluid>
-        <Row center="lg">
+        <Row center="lg" style={style}>
             <Col xs={3} sm={3} lg={2}><Avatar src={props.image}/></Col>
-            <Col xs={6} sm={6} lg={4}>
-                <Row around="lg">
-                    <Col>{props.name}</Col>
-                </Row>
-
-            </Col>
-            <Col xs={3} sm={3} lg={2}>
-                <div>{props.price}</div>
-            </Col>
+            <Col xs={6} sm={6} lg={4}>{props.name}</Col>
+            <Col xs={3} sm={3} lg={2}>{props.price}</Col>
         </Row>
     </Grid>
 );
