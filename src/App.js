@@ -1,48 +1,53 @@
 import React from "react";
-import "./App.css";
-import {Row} from "react-flexbox-grid";
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import {AppBar, MenuItem, IconMenu, IconButton} from "material-ui";
-import MoreVertIcon from "material-ui/svg-icons/navigation/more-vert";
-import SpicyMenu from "./menus/SpicyMenu";
-import foodItems from "./data/food";
+import {AppBar, MenuItem, Drawer} from "material-ui";
+import Link from 'react-router-dom';
 
-const AppMenu = () => {
-    return (
-        <IconMenu
-            iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
-            anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-            targetOrigin={{horizontal: 'right', vertical: 'top'}}>
-            <MenuItem primaryText="Menus"/>
-            <MenuItem primaryText="Summary"/>
-        </IconMenu>
-    );
-};
+class App extends React.Component {
+    constructor(props) {
+        super(props);
 
+        this.state = {
+            open: false
+        }
+    }
 
-const muiTheme = getMuiTheme({
-    appBar: {
-        color: '#16a085',
-    },
-});
-const App = () => (
-    <MuiThemeProvider muiTheme={muiTheme}>
-        <div>
+    toggleDrawer = () => this.setState({open: !this.state.open})
+
+    render() {
+        return (
             <div>
-                <Row around="lg">
-                    <AppBar
-                        title="spicyveggie"
-                        showMenuIconButton={false}
-                        iconElementRight={<AppMenu />}
+                <AppBar
+                    title="SpicyVeggie"
+                    iconClassNameRight="muidocs-icon-navigation-expand-more"
+                    onLeftIconButtonTouchTap={this.toggleDrawer}
+                />
+
+                <Drawer
+                    docked={false}
+                    width={300}
+                    onRequestChange={this.toggleDrawer}
+                    open={this.state.open}
+                >
+                    <MenuItem
+                        primaryText="Menu"
+                        containerElement={<Link to="/menu"/>}
+                        onTouchTap={() => {
+                            console.log('going home')
+                            this.toggleDrawer()
+                        }}
                     />
-                </Row>
+                    <MenuItem
+                        primaryText="Summary"
+                        containerElement={<Link to="/summary"/>}
+                        onTouchTap={() => {
+                            console.log('going summary')
+                            this.toggleDrawer()
+                        }}
+                    />
+                </Drawer>
             </div>
-            <div id="content-root">
-                <SpicyMenu foodItems={foodItems}/>
-            </div>
-        </div>
-    </MuiThemeProvider>
-);
+        );
+    }
+}
 
 export default App;

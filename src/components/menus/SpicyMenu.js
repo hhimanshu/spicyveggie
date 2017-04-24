@@ -2,14 +2,30 @@ import React from "react";
 import {Avatar, List, ListItem} from 'material-ui';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 
+import foodItems from '../../data/food.js';
+
+
 // https://www.pexels.com/photo-license/
 // All photos on Pexels are free for any personal and commercial purpose.
+class SpicyMenu extends React.Component {
 
-const SpicyMenu = (props) => (
-    <List>
-        {props.foodItems.map(foodItem => <SpicyMenuItem key={foodItem.name} {...foodItem}/>)}
-    </List>
-);
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            foodItems: foodItems
+        }
+    }
+
+    render() {
+        return (
+            <List>
+                {this.state.foodItems.map(foodItem => <SpicyMenuItem key={foodItem.name} {...foodItem}/>)}
+            </List>
+
+        );
+    }
+}
 
 const RowItemStyle = {
     alignItems: "center"
