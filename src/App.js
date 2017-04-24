@@ -1,48 +1,57 @@
 import React from "react";
-import "./App.css";
-import {Row} from "react-flexbox-grid";
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import {AppBar, MenuItem, IconMenu, IconButton} from "material-ui";
-import MoreVertIcon from "material-ui/svg-icons/navigation/more-vert";
-import SpicyMenu from "./menus/SpicyMenu";
-import foodItems from "./data/food";
+import {AppBar, Drawer, MenuItem} from "material-ui";
+import {Link} from "react-router-dom";
+import "./index.css";
 
-const AppMenu = () => {
-    return (
-        <IconMenu
-            iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
-            anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-            targetOrigin={{horizontal: 'right', vertical: 'top'}}>
-            <MenuItem primaryText="Menus"/>
-            <MenuItem primaryText="Summary"/>
-        </IconMenu>
-    );
-};
+class App extends React.Component {
+    constructor(props) {
+        super(props);
 
+        this.state = {
+            open: false
+        }
+    }
 
-const muiTheme = getMuiTheme({
-    appBar: {
-        color: '#16a085',
-    },
-});
-const App = () => (
-    <MuiThemeProvider muiTheme={muiTheme}>
-        <div>
+    toggleDrawer = () => this.setState({open: !this.state.open});
+
+    render() {
+        return (
             <div>
-                <Row around="lg">
-                    <AppBar
-                        title="spicyveggie"
-                        showMenuIconButton={false}
-                        iconElementRight={<AppMenu />}
+                <AppBar
+                    title="SpicyVeggie"
+                    iconClassNameRight="muidocs-icon-navigation-expand-more"
+                    onLeftIconButtonTouchTap={this.toggleDrawer}
+                />
+
+                <Drawer
+                    docked={false}
+                    width={300}
+                    onRequestChange={this.toggleDrawer}
+                    open={this.state.open}
+                >
+                    <AppBar title="SpicyVeggie" onLeftIconButtonTouchTap={this.toggleDrawer} />
+                    <MenuItem
+                        primaryText="Menu"
+                        containerElement={<Link to="/menu"/>}
+                        onTouchTap={() => {
+                            this.toggleDrawer()
+                        }}
                     />
-                </Row>
+                    <MenuItem
+                        primaryText="Summary"
+                        containerElement={<Link to="/summary"/>}
+                        onTouchTap={() => {
+                            this.toggleDrawer()
+                        }}
+                    />
+                </Drawer>
+
+                <div className="container">
+                    {this.props.children}
+                </div>
             </div>
-            <div id="content-root">
-                <SpicyMenu foodItems={foodItems}/>
-            </div>
-        </div>
-    </MuiThemeProvider>
-);
+        );
+    }
+}
 
 export default App;
