@@ -1,6 +1,7 @@
 import React from "react";
-import {AppBar, MenuItem, Drawer} from "material-ui";
-import Link from 'react-router-dom';
+import {AppBar, Drawer, MenuItem} from "material-ui";
+import {Link} from "react-router-dom";
+import "./index.css";
 
 class App extends React.Component {
     constructor(props) {
@@ -11,7 +12,7 @@ class App extends React.Component {
         }
     }
 
-    toggleDrawer = () => this.setState({open: !this.state.open})
+    toggleDrawer = () => this.setState({open: !this.state.open});
 
     render() {
         return (
@@ -28,11 +29,11 @@ class App extends React.Component {
                     onRequestChange={this.toggleDrawer}
                     open={this.state.open}
                 >
+                    <AppBar title="SpicyVeggie" onLeftIconButtonTouchTap={this.toggleDrawer} />
                     <MenuItem
                         primaryText="Menu"
                         containerElement={<Link to="/menu"/>}
                         onTouchTap={() => {
-                            console.log('going home')
                             this.toggleDrawer()
                         }}
                     />
@@ -40,11 +41,14 @@ class App extends React.Component {
                         primaryText="Summary"
                         containerElement={<Link to="/summary"/>}
                         onTouchTap={() => {
-                            console.log('going summary')
                             this.toggleDrawer()
                         }}
                     />
                 </Drawer>
+
+                <div className="container">
+                    {this.props.children}
+                </div>
             </div>
         );
     }

@@ -1,21 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-import './index.css';
+import injectTapEventPlugin from "react-tap-event-plugin";
 
-import App from './App';
-import Summary from './components/summary/Summary';
-import Menu from './components/menus/Menu';
 
-import {
-    BrowserRouter as Router,
-    Route,
-    Link,
-    Switch,
-    browserHistory
-} from 'react-router-dom';
+import App from "./App";
+import Summary from "./components/summary/Summary";
+import Menu from "./components/menus/SpicyMenu";
+
+import {BrowserRouter as Router, browserHistory, Route, Redirect} from "react-router-dom";
 
 injectTapEventPlugin();
 
@@ -23,11 +16,12 @@ injectTapEventPlugin();
 const Root = () => (
     <MuiThemeProvider>
         <Router history={browserHistory}>
-            <Switch>
-                <Route exact path="/" component={App}/>
+            <div>
+                <Route path="/" component={App}/>
                 <Route path="/menu" component={Menu}/>
                 <Route path="/summary" component={Summary}/>
-            </Switch>
+                <Redirect from="/" to="/summary" />
+            </div>
         </Router>
     </MuiThemeProvider>
 );
