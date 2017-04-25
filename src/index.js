@@ -22,7 +22,7 @@ const Root = () => (
                 <Route path="/menu" component={Menu}/>
                 <Route path="/summary" component={Summary}/>
                 <Route path="/menuDetail/:id" component={MenuDetail}/>
-                <Redirect from="/" to="/summary"/>
+                <Redirect from="/" to="/menu"/>
             </div>
         </Router>
     </MuiThemeProvider>
