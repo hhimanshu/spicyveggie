@@ -1,7 +1,7 @@
 import React from "react";
 import {Avatar, List, ListItem} from 'material-ui';
 import {Grid, Row, Col} from 'react-flexbox-grid';
-import { browserHistory } from 'react-router';
+import {withRouter} from 'react-router';
 
 import foodItems from '../../data/food.js';
 
@@ -21,7 +21,7 @@ class SpicyMenu extends React.Component {
     render() {
         return (
             <List>
-                {this.state.foodItems.map(foodItem => <SpicyMenuItem key={foodItem.id} {...foodItem}/>)}
+                {this.state.foodItems.map(foodItem => <SpicyMenuItemWithRouter key={foodItem.id} {...foodItem}/>)}
             </List>
 
         );
@@ -42,10 +42,11 @@ class SpicyMenuItem extends React.Component {
     fetchMenuItem(menuId) {
         return () => {
             console.log("fetching menu with id: " + menuId);
-            browserHistory.push('/menuDetail/' + menuId);
+            this.props.history.push('/menuDetail/' + menuId);
         }
 
     }
+
     render() {
         return (
             <ListItem onClick={this.fetchMenuItem(this.props.id)}>
@@ -60,5 +61,6 @@ class SpicyMenuItem extends React.Component {
         );
     }
 }
+const SpicyMenuItemWithRouter = withRouter(SpicyMenuItem);
 
 export default SpicyMenu;
