@@ -4,8 +4,6 @@ import {Col, Grid, Row} from "react-flexbox-grid";
 import menuDetails from "../../data/menudetails";
 import {blue300, blue500, greenA200, indigo900, red500} from "material-ui/styles/colors";
 
-import FontIcon from "material-ui/FontIcon";
-
 const iconStyles = {
     marginRight: 24,
 };
