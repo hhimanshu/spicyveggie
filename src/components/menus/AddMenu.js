@@ -24,7 +24,6 @@ class AddMenu extends React.Component {
     initialState = {
         name: '',
         price: '',
-        date: '',
         showSnack: false
     };
 
@@ -57,7 +56,8 @@ class AddMenu extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        //console.log("Added new Menu with" + JSON.stringify(this.state, null, 2));
+        // validate form
+        console.log("Added new Menu with" + JSON.stringify(this.state, null, 2));
         this.handleTouchTap();
         this.setState(this.initialState);
     }
@@ -93,8 +93,8 @@ class AddMenu extends React.Component {
                                     required={true}
                                     hintText="Menu Add Date"
                                     container="inline"
+                                    defaultDate={new Date()}
                                     onChange={this.handleDate}
-                                    value={this.state.date}
                         />
                     </Row>
                 </Grid>
