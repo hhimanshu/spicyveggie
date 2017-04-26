@@ -11,80 +11,103 @@ import kaleSalad from "../images/salad-healthy-diet-spinach.jpg";
 import salmonCake from "../images/salmon-dish-food-meal-46239.jpeg";
 import pizza from "../images/vegetables-italian-pizza-restaurant.jpg";
 
-const foodItems = [
+const menuDetails = [
     {
         "id": "1",
         "name": "Bread Sandwich",
         "image": breadSandwich,
-        "price": "$9.89"
-
+        "price": "$9.89",
+        "served": ["breakfast", "lunch"],
+        "spiceLevel": "low"
     },
     {
         "id": "2",
         "name": "Spaghetti Pasta",
         "image": spaghettiPasta,
-        "price": "$11.23"
+        "price": "$11.23",
+        "served": ["lunch", "dinner"],
+        "spiceLevel": "medium"
     },
     {
         "id": "3",
         "name": "Healthy Salad",
         "image": healthySalad,
-        "price": "$12.99"
+        "price": "$12.99",
+        "served": ["lunch"],
+        "spiceLevel": "low"
     },
     {
         "id": "4",
         "name": "Meat Mushroom",
         "image": meatMushroom,
-        "price": "$7.99"
+        "price": "$7.99",
+        "served": ["lunch", "dinner"],
+        "spiceLevel": "high"
     },
     {
         "id": "5",
         "name": "Muffin",
         "image": muffin,
-        "price": "$3.99"
+        "price": "$3.99",
+        "served": ["all day"],
+        "spiceLevel": "none"
     },
     {
         "id": "6",
         "name": "Tom Yum Soup",
         "image": tomYumSoup,
-        "price": "$5.55"
+        "price": "$5.55",
+        "served": ["lunch", "dinner"],
+        "spiceLevel": "medium"
     },
     {
         "id": "7",
         "name": "Burger Fries",
         "image": burgerFries,
-        "price": "$11.10"
+        "price": "$11.10",
+        "served": ["breakfast", "lunch", "dinner"],
+        "spiceLevel": "medium"
     },
     {
         "id": "8",
         "name": "Stir Fry",
         "image": stirFry,
-        "price": "$7.45"
+        "price": "$7.45",
+        "served": ["lunch", "dinner"],
+        "spiceLevel": "high"
     },
     {
         "id": "9",
         "name": "Spinach Salad",
         "image": spinachSalad,
-        "price": "$6.55"
+        "price": "$6.55",
+        "served": ["lunch"],
+        "spiceLevel": "low"
     },
     {
         "id": "10",
         "name": "Kale Salad",
         "image": kaleSalad,
-        "price": "$6.55"
+        "price": "$6.55",
+        "served": ["lunch"],
+        "spiceLevel": "low"
     },
     {
         "id": "11",
         "name": "Salmon Cake",
         "image": salmonCake,
-        "price": "$6.10"
+        "price": "$6.10",
+        "served": ["all day"],
+        "spiceLevel": "medium"
     },
     {
-        "id": "125",
+        "id": "12",
         "name": "Italian Pizza",
         "image": pizza,
-        "price": "$11.99"
+        "price": "$11.99",
+        "served": ["lunch", "dinner"],
+        "spiceLevel": "high"
     }
 ];
 
-export default foodItems;
+export default menuDetails;
