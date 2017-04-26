@@ -2,11 +2,7 @@ import React from "react";
 import {Avatar, Chip} from "material-ui";
 import {Col, Grid, Row} from "react-flexbox-grid";
 import menuDetails from "../../data/menudetails";
-import {blue300, blue500, greenA200, indigo900, red500} from "material-ui/styles/colors";
-
-const iconStyles = {
-    marginRight: 24,
-};
+import {blue300} from "material-ui/styles/colors";
 
 const menuRowOneStyle = {
     alignItems: "center",

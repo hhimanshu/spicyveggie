@@ -101,7 +101,7 @@ const menuDetails = [
         "spiceLevel": "medium"
     },
     {
-        "id": "125",
+        "id": "12",
         "name": "Italian Pizza",
         "image": pizza,
         "price": "$11.99",

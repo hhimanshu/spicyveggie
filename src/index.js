@@ -7,6 +7,7 @@ import injectTapEventPlugin from "react-tap-event-plugin";
 import App from "./App";
 import Summary from "./components/summary/Summary";
 import Menu from "./components/menus/SpicyMenu";
+import AddMenu from "./components/menus/AddMenu";
 import MenuDetail from "./components/menus/MenuDetail";
 
 import {BrowserRouter as Router, browserHistory, Route, Redirect} from "react-router-dom";
@@ -21,6 +22,7 @@ const Root = () => (
                 <Route path="/" component={App}/>
                 <Route path="/menu" component={Menu}/>
                 <Route path="/summary" component={Summary}/>
+                <Route path="/addMenu" component={AddMenu}/>
                 <Route path="/menuDetail/:id" component={MenuDetail}/>
                 <Redirect from="/" to="/menu"/>
             </div>
